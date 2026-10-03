@@ -8,8 +8,14 @@ docs/
 CodingAgentSession.md
 AGENTS.md
 
+# Local-only LiteLLM setup
+scripts/
+litellm_config.yaml
+requirements-litellm.txt
+
 # Python environments
 .venv/
+.litellm-venv/
 venv/
 env/
 

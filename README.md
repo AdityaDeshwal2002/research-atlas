@@ -14,8 +14,8 @@ The prototype combines:
 
 ## Current Status
 
-M0 and M1, Minimal Generative UI, are complete. The current prototype exposes a
-minimal FastMCP server with FastMCP's Generative UI provider.
+M0 and M1, Minimal Generative UI, are complete. M2 is in progress: the project
+is adding a PydanticAI call through a local LiteLLM gateway to OpenAI.
 
 ## Run
 
@@ -58,3 +58,21 @@ ruff check .
 pytest
 pip check
 ```
+
+## M2 — Model Gateway Demo
+
+The M2 demo sends a PydanticAI request through an OpenAI-compatible LiteLLM
+Proxy and validates the structured result. To run it live, configure a local
+LiteLLM Proxy with the model alias `research-planner` and make it available at
+`http://localhost:4000/v1`. Supply `LITELLM_MASTER_KEY` to the demo environment;
+keep provider credentials in the gateway environment. `.env.example` lists the
+expected local variable names. Never commit real credentials.
+
+Run the demo using the Research Atlas environment:
+
+```powershell
+.\.venv\Scripts\python.exe gateway_demo.py
+```
+
+The automated tests use a simulated model and do not make API requests. A live
+gateway call may incur token-based provider charges.
